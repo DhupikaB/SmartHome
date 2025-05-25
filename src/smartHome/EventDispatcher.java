@@ -1,10 +1,17 @@
 package smartHome;
 
+import smartHome.devices.Device;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class EventDispatcher {
     private List<Device> devices = new ArrayList<>();
+
+    public List<Device> getRegisteredDevices() {
+        return devices;
+    }
+
 
     public void registerDevice(Device device){
         devices.add(device);
@@ -16,4 +23,6 @@ public class EventDispatcher {
             device.update(event);
         }
     }
+
+
 }

@@ -1,4 +1,4 @@
-package smartHome;
+package smartHome.devices;
 
 public interface Device {
 

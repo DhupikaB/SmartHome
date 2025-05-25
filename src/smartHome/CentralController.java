@@ -1,8 +1,8 @@
 package smartHome;
 
-import javafx.event.Event;
-import javafx.event.EventDispatchChain;
-import javafx.event.EventDispatcher;
+
+import smartHome.modes.DefaultMode;
+import smartHome.modes.ModeStrategy;
 
 public class CentralController {
     private static CentralController instance;
@@ -15,7 +15,7 @@ public class CentralController {
 
     private CentralController(){
         this.mode = new DefaultMode();
-        this.dispatcher = new EventDispatcher();
+        this.dispatcher = new smartHome.EventDispatcher();
         this.systemState = new SystemState();
 
     }
@@ -42,7 +42,7 @@ public class CentralController {
 
     public void runMode(SystemState state){
         if(mode!= null){
-            mode.execute(state);
+            mode.execute(state,dispatcher);
         }else{
             System.out.println("Mode not set");
         }
